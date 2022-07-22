@@ -4,37 +4,14 @@ import Expenses from 'components/Expenses/Expenses'
 import NewExpense from 'components/NewExpense/NewExpense'
 
 
-const dummy_Expenses = [
-//   {
-//     id:'i1',
-//   title:'LG Moniter',
-//   amount: 294.64,
-// date: new Date(2022,6,20)
-// },
-// {
-//   id:'i2',
-// title:'100pk tea candles',
-//   amount: 18.89,
-// date: new Date(2022,7,11)
-// },
-// {
-//   id:'i3',
-// title:'HP laptop',
-//   amount: 843.99,
-// date: new Date(2022,6,24)
-// },
-// {
-//   id:'i4',
-// title:'Sony headphones',
-//   amount: 150.95,
-// date: new Date(2022,7,5)
-// }
+const listExpenses = [
+
 ]
 
 
 const App = () => {
 
-const [expenses,setExpenses ] = useState(dummy_Expenses)
+const [expenses,setExpenses ] = useState(listExpenses)
 
 
 const addExpenseHandler = (expense) => {
@@ -44,21 +21,6 @@ const addExpenseHandler = (expense) => {
     return [expense, ...prevExpenses]
   }))
 }
-
-
-// useEffect(() => {
-// const json = JSON.stringify(storeExpenses)
-//     localStorage.setItem("savedExpenseList", json);
- 
-// }, [storeExpenses]);
-
-// useEffect(() => {
-//   const json = localStorage.getItem("savedExpenseList");
-//   const savedList = JSON.parse(json);
-//   if (savedList) {
-//     setStoreExpenses(savedList);
-//   }
-// }, []);
 
   return (
   <> 

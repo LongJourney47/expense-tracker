@@ -6,62 +6,19 @@ const ExpenseForm = (props) => {
     const [enteredAmount, setEnteredAmount] = useState('') 
     const [enteredDate, setEnteredDate] = useState('') 
 
-    // data storage
-    const [storeExpenses, setStoreExpenses] = useState([])
-
-    // will manange the transition between sections/images from form to "add new expense"
-    
-    
-    // when faced with many states that are related it is best to group them together
-// const [userInput, SetUserInput] = useState({
-//     etneredTitle: '',
-//     enteredAmount: '',
-//     enteredDate: ''
-// })
-
-
-
 const titleChangeHandler =(event) => {
 
     // =============  captures user input ========= 
     setEnteredTitle(event.target.value)
-    // ============ must spread user input so that the rest of the data is not lost =============
-    //C({
-    //     ...userInput,
-    //     etneredTitle: event.target.vlaue,
-    // })
-
-    // ======== More Ideal Approach ============
-    // ========  The function passed through will recieve the previous states value. The new state is then returned ========
-    // SetUserInput((prevState) => {
-    //     return { ...prevState, etneredTitle: event.target.value}
-    // })
-    // console.log(event.target.value)
-     
-
+    
 }
 const amountChangeHandler = (event) => {
     setEnteredAmount(event.target.value)
-    // SetUserInput({
-    //     ...userInput,
-    //     enteredAmount: event.target.vlaue,
-    // })
-    // SetUserInput((prevState) => {
-    //     return { ...prevState, enteredAmount: event.target.value}
-    // })
-    // console.log(event.target.value)
 
 }
 const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value)
-    // SetUserInput({
-    //     ...userInput,
-    //     etneredDate: event.target.vlaue,
-    // })
-    // SetUserInput((prevState) => {
-    //     return { ...prevState, enteredDate: event.target.value}
-    // })
-// console.log(event.target.value)
+
 }
 
 
@@ -84,23 +41,6 @@ setEnteredAmount('')
 setEnteredDate('')
 }
 
-const expenseStorage = () => {
-
-}
- 
-useEffect(() => {
-    const json = JSON.stringify(storeExpenses)
-        localStorage.setItem("savedExpenseList", json);
-     
-    }, [storeExpenses]);
-    
-    useEffect(() => {
-      const json = localStorage.getItem("savedExpenseList");
-      const savedList = JSON.parse(json);
-      if (savedList) {
-        setStoreExpenses(savedList);
-      }
-    }, []);
 
 
     return(
@@ -124,7 +64,7 @@ useEffect(() => {
                 <div className='new-expense__actions'>
                     {/* ==== passing the reverse handler function here via props to begin the process ======== */}
                <button type='button' onClick={props.onCancel}>Cancel</button>
-                    <button type='submit' onClick={() => {setStoreExpenses()}}>Add Expense</button>
+                    <button type='submit' >Add Expense</button>
                    
                 </div>
             </form> 
